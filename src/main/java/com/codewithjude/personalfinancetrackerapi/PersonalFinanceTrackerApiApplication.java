@@ -10,5 +10,4 @@ public class PersonalFinanceTrackerApiApplication {
     public static void main(String[] args) {
         SpringApplication.run(PersonalFinanceTrackerApiApplication.class, args);
     }
-
 }
