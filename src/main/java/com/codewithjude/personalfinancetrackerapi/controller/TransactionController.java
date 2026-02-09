@@ -31,6 +31,6 @@ public class TransactionController {
     @GetMapping("/balance")
     public Double getBalance(){
         return transactionService.calculateNetBalance();
-    }
+
 
 }
