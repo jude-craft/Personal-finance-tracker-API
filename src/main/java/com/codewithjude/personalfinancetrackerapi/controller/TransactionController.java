@@ -1,6 +1,7 @@
 package com.codewithjude.personalfinancetrackerapi.controller;
 
 import com.codewithjude.personalfinancetrackerapi.model.Transaction;
+import com.codewithjude.personalfinancetrackerapi.model.TransactionType;
 import com.codewithjude.personalfinancetrackerapi.service.TransactionService;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,8 +30,12 @@ public class TransactionController {
     }
 
     @GetMapping("/balance")
-    public Double getBalance(){
+    public Double getBalance() {
         return transactionService.calculateNetBalance();
+    }
 
-
+    @GetMapping("/type/{type}")
+    public List<Transaction> getByType(@PathVariable TransactionType type){
+        return  transactionService.getTransactionsByType(type);
+    }
 }

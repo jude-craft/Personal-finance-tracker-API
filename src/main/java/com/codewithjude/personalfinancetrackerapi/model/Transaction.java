@@ -17,6 +17,6 @@ public class Transaction {
     private Double amount;
     private String description;
     private TransactionType type;
-    private LocalDate timestamp;
+    private LocalDate timestamp = LocalDate.now();
 
 }
