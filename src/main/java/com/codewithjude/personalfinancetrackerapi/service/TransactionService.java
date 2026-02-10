@@ -4,6 +4,7 @@ import com.codewithjude.personalfinancetrackerapi.model.Transaction;
 import com.codewithjude.personalfinancetrackerapi.model.TransactionType;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +19,9 @@ public class TransactionService {
     }
 
     public void addTransaction(Transaction transaction) {
+        if (transaction.getTimestamp() == null) {
+            transaction.setTimestamp(LocalDate.now());
+        }
         transactions.add(transaction);
     }
 
@@ -25,6 +29,12 @@ public class TransactionService {
         return transactions.stream()
                 .mapToDouble(t -> t.getType() == TransactionType.INCOME ? t.getAmount() : -t.getAmount())
                 .sum();
+    }
+
+    public List<Transaction> getTransactionsByType(TransactionType type){
+        return transactions.stream()
+                .filter(t -> t.getType() == type)
+                .toList();
     }
 
 
