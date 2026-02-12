@@ -1,8 +1,8 @@
-package com.codewithjude.personalfinancetrackerapi.controller;
+package com.codewithjude.personalfinancetrackerapi.presentation.controller;
 
-import com.codewithjude.personalfinancetrackerapi.model.Transaction;
-import com.codewithjude.personalfinancetrackerapi.model.TransactionType;
-import com.codewithjude.personalfinancetrackerapi.service.TransactionService;
+import com.codewithjude.personalfinancetrackerapi.domain.entity.Transaction;
+import com.codewithjude.personalfinancetrackerapi.domain.entity.TransactionType;
+import com.codewithjude.personalfinancetrackerapi.application.service.TransactionService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

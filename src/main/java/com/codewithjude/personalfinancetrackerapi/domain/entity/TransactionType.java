@@ -1,4 +1,4 @@
-package com.codewithjude.personalfinancetrackerapi.model;
+package com.codewithjude.personalfinancetrackerapi.domain.entity;
 
 // fixed set of constants
 public enum TransactionType {

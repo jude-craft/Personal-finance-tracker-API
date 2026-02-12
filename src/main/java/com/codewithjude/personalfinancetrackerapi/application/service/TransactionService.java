@@ -1,7 +1,7 @@
-package com.codewithjude.personalfinancetrackerapi.service;
+package com.codewithjude.personalfinancetrackerapi.application.service;
 
-import com.codewithjude.personalfinancetrackerapi.model.Transaction;
-import com.codewithjude.personalfinancetrackerapi.model.TransactionType;
+import com.codewithjude.personalfinancetrackerapi.domain.entity.Transaction;
+import com.codewithjude.personalfinancetrackerapi.domain.entity.TransactionType;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
