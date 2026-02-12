@@ -3,6 +3,8 @@ package com.codewithjude.personalfinancetrackerapi.presentation.controller;
 import com.codewithjude.personalfinancetrackerapi.domain.entity.Transaction;
 import com.codewithjude.personalfinancetrackerapi.domain.entity.TransactionType;
 import com.codewithjude.personalfinancetrackerapi.application.service.TransactionService;
+import com.codewithjude.personalfinancetrackerapi.presentation.dto.TransactionRequest;
+import com.codewithjude.personalfinancetrackerapi.presentation.dto.TransactionResponse;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,15 +20,13 @@ public class TransactionController {
     }
 
     @GetMapping
-    public List<Transaction> getTransaction(){
+    public List<TransactionResponse> getAll(){
        return transactionService.getAllTransactions();
     }
 
     @PostMapping
-    public String createTransaction(@RequestBody Transaction transaction){
-        transactionService.addTransaction(transaction);
-        return "Transaction added successfully";
-
+    public TransactionResponse create(@RequestBody TransactionRequest request){
+       return transactionService.addTransaction(request);
     }
 
     @GetMapping("/balance")
@@ -35,7 +35,7 @@ public class TransactionController {
     }
 
     @GetMapping("/type/{type}")
-    public List<Transaction> getByType(@PathVariable TransactionType type){
+    public List<TransactionResponse> getByType(@PathVariable TransactionType type){
         return  transactionService.getTransactionsByType(type);
     }
 }
